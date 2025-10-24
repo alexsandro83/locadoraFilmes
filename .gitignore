@@ -1,1 +1,5 @@
+# Ignorar apenas arquivos de banco de dados SQLite
 *.db
+*.sqlite
+*.db-journal
+*.sqlite3
