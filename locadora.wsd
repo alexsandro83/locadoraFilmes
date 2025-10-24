@@ -1,0 +1,54 @@
+@startuml
+/'
+Sistema de Cadastro de Filmes para Locadora
+Diagrama de Classes UML
+Desenvolvido por: Ricardo e Alexsandro
+'/
+
+' Classe principal representando um filme
+class Filme {
+  - id_filme: int
+  ' Título do filme (obrigatório)
+  - titulo: String
+  - diretor: String
+  - ano_lancamento: int
+  - duracao: int
+  ' Quantidade disponível para locação
+  - quantidade_total: int
+  - genero: String
+  --
+  + verificar_disponiveis(): boolean
+  + adicionar_estoque(quantidade: int)
+  + remover_estoque(quantidade: int)
+  + obter_atuacao(): List<Atuacao>
+}
+
+' Classe representando atores dos filmes
+class Ator {
+  - id_ator: int
+  - nome: String
+  - data_nascimento: Date
+  - nacionalidade: String
+  --
+  + obter_atuacao(): List<Atuacao>
+}
+
+' Classe para categorização dos filmes
+/'
+Classe de associação para resolver
+a relação muitos-para-muitos entre
+Filme e Ator
+'/
+class Atuacao{
+  - id_filme_ator: int
+  - id_filme: int
+  - id_ator: int
+  - personagem: String
++ adicionarAtuacao(Ator): 
+}
+
+' Relações entre as classes
+Filme "*" -- "*" Ator 
+Atuacao "1" -- "1" Ator
+Filme "1" -- "*" Atuacao
+@enduml
